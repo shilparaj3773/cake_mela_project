@@ -1,0 +1,53 @@
+{% extends 'cake_maker/base.html' %}
+{% load static %}
+
+
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v5 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/roboto-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/font-awesome-5/css/fontawesome-all.min.css'%}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}"/>
+	<script>
+    alert('{{ msg }}');
+</script>
+</head>
+<body class="form-v5">
+	<div class="page-content">
+		<div class="form-v5-content">
+
+                                {% for msg in messages %}
+                                <div style="color:red;">{{msg}}</div>
+                                {% endfor %}
+
+                                <div style=" text-align: center;
+                                   text-decoration: underline;"><h2>Add cake</h2></div>
+
+
+			<form class="form-detail" action="#" method="post"  enctype="multipart/form-data">
+
+				{% csrf_token %}
+
+                {{form|crispy}}
+
+
+<br>
+<br>
+
+				<div class="form-row-last">
+					<input type="submit" name="add cake" class="add cake" value="add cake">
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+{% endblock  %}

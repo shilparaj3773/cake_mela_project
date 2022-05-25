@@ -1,0 +1,88 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PetLover - Pet Care Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'cx/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="{% static 'cx/https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=' %}'"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'cx/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}"
+          rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'cx/lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'cx/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'cx/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet"/>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'cx/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<!-- Topbar Start -->
+
+
+<!-- Pricing Plan Start -->
+<div class="container-fluid bg-light pt-5 pb-4">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Pricing Plan</h4>
+            <h1 class="display-4 m-0">Choose the <span class="text-primary">Best Price</span></h1>
+        </div>
+        <div class="row">
+            {% for i in data %}
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+
+                        <img class="card-img-top" src="{{i.picture.url}}" style="width:345px;height:275px;">
+                        <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100"
+                             style="top: 0; left: 0; z-index: 1;">
+
+
+                        </div>
+                    </div>
+                    <div class="card-body text-center p-0">
+                        <ul class="list-group list-group-flush mb-4">
+                            <h5>{{i.title}}</h5>
+                            <h5>{{i.price}}</h5>
+                            <h5>{{i.category }}</h5>
+                            <h5>{{i.description }}</h5>
+                        </ul>
+                    </div>
+                    <div class="card-footer border-0 p-0">
+                        <a href="{% url 'add_order' id=i.id %}" class="btn btn-primary btn-block p-3"
+                           style="border-radius: 0;">BUY</a>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endfor %}
+
+            <!-- Pricing Plan End -->
+
+
+            <!-- Footer Start -->
+
+</body>
+
+</html>
+
+{% endblock content %}
